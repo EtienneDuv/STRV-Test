@@ -2,5 +2,21 @@
 <%- include ('partials/nav.ejs') %>
 
 <body>
-  <div class="col-sm-1 offset-1">Future app</div>
+  <% if (typeof error !== 'undefined' && error) { %>
+  # ERROR #
+  <% } %>
+  <div class="col-sm-6 offset-1">
+    <h2 class="padding-25">Login page</h2>
+    <form method="POST" action="/signin" type="application/x-www-form-urlencoded">
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </body>
