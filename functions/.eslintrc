@@ -58,6 +58,7 @@
     "no-useless-escape": 2,
     "no-with": 2,
     "require-yield": 2,
+    "semi": 2,
     "use-isnan": 2,
     "valid-typeof": 2
   }
