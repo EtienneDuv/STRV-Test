@@ -8,6 +8,7 @@ env.config();
 // FIREBASE MODULES
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
+const firebaseApp = admin.initializeApp(functions.config().firebase)
 
 app.set('view engine', 'ejs'); // TEMPLATE ENGINE
 app.use('/', express.static('./public')); // STATICS

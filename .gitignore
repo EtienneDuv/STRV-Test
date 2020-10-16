@@ -3,6 +3,8 @@
 .firebase
 *.log
 
+# firebase project
+strv-addressbook-duverney-23b20cceeacf.json
 # Node Modules
 node_modules/
 # VS code config
