@@ -1,5 +1,9 @@
-# Dependency directories
-node_modules/
-# dotenv environment variables file
 .env
 .env.test
+.firebase
+*.log
+
+# Node Modules
+node_modules/
+# VS code config
+.vscode
