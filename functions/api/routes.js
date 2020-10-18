@@ -7,9 +7,14 @@ module.exports = (app) => {
     res.render('index', { error: req.session.err });
   });
 
-  app.get('/addressBook', checkAuth, (req, res) => {
+  app.get('/addressbook', checkAuth, (req, res) => {
     res.status(200);
     res.render('addressBook');
+  });
+
+  app.post('/newcontact', checkAuth, (req, res) => {
+    res.status(200);
+    res.redirect('addressbook');
   });
 
   app.post('/signin', async (req, res) => {

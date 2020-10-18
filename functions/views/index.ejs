@@ -8,14 +8,8 @@
     <% } %>
     <h2 class="padding-25">Login page</h2>
     <form method="POST" type="application/x-www-form-urlencoded">
-      <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="email" name="email" class="form-control" id="email">
-      </div>
-      <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" name="password" class="form-control" id="pwd">
-      </div>
+      <%- include ('partials/input.ejs', {name: "email", type: "email", label: "Email address"}) %>
+      <%- include ('partials/input.ejs', {name: "password", type: "password" , label: "Password"}) %>
       <button type="submit" class="btn btn-primary" formaction="/signin">Sign in</button>
       <button type="submit" class="btn btn-info" formaction="/signup">Sign up</button>
     </form>
