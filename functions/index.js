@@ -1,8 +1,4 @@
-// FIREBASE MODULES
-const admin = require('firebase-admin');
 const functions = require('firebase-functions');
-exports.firebaseApp = admin.initializeApp();
-
 const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');

@@ -1,6 +1,4 @@
-const { firebaseApp } = require('../index');
-const firebase = require('firebase');
-const auth = firebase.auth();
+const { firebaseApp, admin } = require('./firebaseInitService');
 
 exports.checkAuth = (req, res, next) => {
   let authorized = true;
@@ -12,8 +10,15 @@ exports.checkAuth = (req, res, next) => {
   }
 };
 
+exports.signUp = (email, password) => {
+  return admin.auth().createUser({
+    email: email,
+    password: password
+  });
+};
+
 exports.signIn = (email, password) => {
-  return auth().signInWithEmailAndPassword(email, password)
+  return admin.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
       this.authStatus = 'Authorized';
     }).catch((err) => {
