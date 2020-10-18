@@ -1,31 +1,52 @@
-const { firebaseApp } = require('./firebaseInitService');
+const session = require('express-session');
+const { firebaseApp, adminApp } = require('./firebaseService');
 
-exports.checkAuth = (req, res, next) => {
-  let authorized = true;
-  if (authorized) next();
-  else {
-    res.status(403);
-    res.render('index', { error: 'Unauthorized access' });
-    return;
+exports.getCurrentUserToken = async (req, res, next) => {
+  try {
+    if (firebaseApp.auth().currentUser && firebaseApp.auth().currentUser != null) {
+      req.headers.authtoken = await firebaseApp.auth().currentUser.getIdToken(true);
+      return next();
+    }
+    return next();
+  } catch (err) {
+    console.log(err);
+    req.session.err = err;
+    res.redirect('/');
+  }
+};
+
+exports.checkAuth = async (req, res, next) => {
+  try {
+    if (req.headers.authtoken) {
+      await adminApp.auth().verifyIdToken(req.headers.authtoken);
+      next();
+    }
+    else {
+      res.status(403);
+      res.render('index', { error: 'Not connected/Unauthorized' });
+      return;
+    }
+  } catch (err) {
+    console.log(err);
+    req.session.err = err;
+    res.redirect('/');
   }
 };
 
 exports.signUp = async (email, password) => {
   try {
-    const user = await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
-    this.authStatus = 'Authorized';
-    return user;
+    return await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
   } catch (err) {
-    this.authStatus = err;
+    console.log(err);
+    return err;
   }
 };
 
 exports.signIn = async (email, password) => {
   try {
-    const user = await firebaseApp.auth().signInWithEmailAndPassword(email, password);
-    this.authStatus = 'Authorized';
-    return user;
+    return await firebaseApp.auth().signInWithEmailAndPassword(email, password);
   } catch (err) {
-    this.authStatus = err;
+    console.log(err);
+    return err;
   }
 };

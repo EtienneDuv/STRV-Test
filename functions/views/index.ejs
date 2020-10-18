@@ -2,10 +2,10 @@
 <%- include ('partials/nav.ejs') %>
 
 <body>
-  <% if (typeof error !== 'undefined' && error) { %>
-  # ERROR #
-  <% } %>
   <div class="col-sm-6 offset-1">
+    <% if (typeof error !== "" && error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+    <% } %>
     <h2 class="padding-25">Login page</h2>
     <form method="POST" type="application/x-www-form-urlencoded">
       <div class="form-group">
