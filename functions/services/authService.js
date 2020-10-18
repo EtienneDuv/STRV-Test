@@ -1,4 +1,4 @@
-const { firebaseApp, admin } = require('./firebaseInitService');
+const { firebaseApp } = require('./firebaseInitService');
 
 exports.checkAuth = (req, res, next) => {
   let authorized = true;
@@ -10,18 +10,22 @@ exports.checkAuth = (req, res, next) => {
   }
 };
 
-exports.signUp = (email, password) => {
-  return admin.auth().createUser({
-    email: email,
-    password: password
-  });
+exports.signUp = async (email, password) => {
+  try {
+    const user = await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
+    this.authStatus = 'Authorized';
+    return user;
+  } catch (err) {
+    this.authStatus = err;
+  }
 };
 
-exports.signIn = (email, password) => {
-  return admin.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-      this.authStatus = 'Authorized';
-    }).catch((err) => {
-      this.authStatus = err;
-    });
+exports.signIn = async (email, password) => {
+  try {
+    const user = await firebaseApp.auth().signInWithEmailAndPassword(email, password);
+    this.authStatus = 'Authorized';
+    return user;
+  } catch (err) {
+    this.authStatus = err;
+  }
 };

@@ -2,7 +2,6 @@ const functions = require('firebase-functions');
 const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
-const env = require('dotenv');
 const { checkAuth } = require('./services/authService');
 const app = express();
 
@@ -12,7 +11,6 @@ app.use(cors({ origin: true }));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use('/', checkAuth);
-env.config();
 
 // ROUTES
 const controller = require('./api/routes');
