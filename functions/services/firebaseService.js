@@ -1,16 +1,8 @@
 const firebase = require('firebase');
 const admin = require('firebase-admin');
+const env = require('firebase-functions').config();
 
-const env = require('dotenv');
-env.config();
+const config = { ...env };
 
-const config = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  databaseURL: process.env.databaseURL,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId
-};
 exports.firebaseApp = firebase.initializeApp(config);
 exports.adminApp = admin.initializeApp(config);
