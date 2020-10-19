@@ -1,6 +1,9 @@
-const session = require('express-session');
 const { firebaseApp, adminApp } = require('./firebaseService');
 
+/**
+ * @description Middleware putting UserId, 
+ * if connected, in header for authorization check
+ */
 exports.getCurrentUserToken = async (req, res, next) => {
   try {
     if (firebaseApp.auth().currentUser && firebaseApp.auth().currentUser != null) {
@@ -15,6 +18,10 @@ exports.getCurrentUserToken = async (req, res, next) => {
   }
 };
 
+/**
+ * @description Middleware used to secure some pages, checking 
+ * if user is connected and allowed
+ */
 exports.checkAuth = async (req, res, next) => {
   try {
     if (req.headers.authtoken) {
@@ -23,7 +30,8 @@ exports.checkAuth = async (req, res, next) => {
     }
     else {
       res.status(403);
-      res.render('index', { error: 'Not connected/Unauthorized' });
+      req.session.err = 'Not connected/Unauthorized';
+      res.redirect('/');
       return;
     }
   } catch (err) {

@@ -2,19 +2,7 @@ const { signIn, signUp, checkAuth } = require('../services/authService');
 
 module.exports = (app) => {
   app.get('/', (req, res) => {
-    console.log(res.err);
-    res.status(200);
     res.render('index', { error: req.session.err });
-  });
-
-  app.get('/addressbook', checkAuth, (req, res) => {
-    res.status(200);
-    res.render('addressBook');
-  });
-
-  app.post('/newcontact', checkAuth, (req, res) => {
-    res.status(200);
-    res.redirect('addressbook');
   });
 
   app.post('/signin', async (req, res) => {
@@ -33,5 +21,9 @@ module.exports = (app) => {
       return res.redirect('/');
     }
     return res.redirect('/addressBook');
+  });
+
+  app.get('/addressbook', checkAuth, (req, res) => {
+    res.render('addressBook');
   });
 };
