@@ -13,7 +13,7 @@ exports.getCurrentUserToken = async (req, res, next) => {
     return next();
   } catch (err) {
     console.log(err);
-    req.session.err = err;
+    res.cookie('__session', err, {maxAge: 1000*60*2, overwrite: true});
     res.redirect('/');
   }
 };
@@ -30,13 +30,13 @@ exports.checkAuth = async (req, res, next) => {
     }
     else {
       res.status(403);
-      req.session.err = 'Not connected/Unauthorized';
+      res.cookie('__session', 'Not connected/Unauthorized', {maxAge: 1000*60*2, overwrite: true});
       res.redirect('/');
       return;
     }
   } catch (err) {
     console.log(err);
-    req.session.err = err;
+    res.cookie('__session', err, {maxAge: 1000*60*2, overwrite: true});
     res.redirect('/');
   }
 };

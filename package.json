@@ -21,9 +21,7 @@
     "url": "https://github.com/EtienneDuv/STRV-Test/issues"
   },
   "homepage": "https://github.com/EtienneDuv/STRV-Test#readme",
-  "dependencies": {
-    "express-session": "^1.17.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "mocha": "^8.1.3"
   }

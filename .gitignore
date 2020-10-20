@@ -1,4 +1,4 @@
-.runtimeconfig.json
+.runtimeconfig.js
 .firebase
 *.log
 
