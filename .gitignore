@@ -1,5 +1,10 @@
-# Dependency directories
+.runtimeconfig.js
+.firebase
+*.log
+
+# firebase project
+strv-addressbook-duverney-23b20cceeacf.json
+# Node Modules
 node_modules/
-# dotenv environment variables file
-.env
-.env.test
+# VS code config
+.vscode

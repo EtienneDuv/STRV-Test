@@ -1,13 +1,14 @@
 {
   "name": "STRV-Test",
   "version": "1.0.0",
-  "description": "**Project description**\r Design & Implement a RESTful API for an AddressBook application. The AddressBook app enables users to register and manage their own contact list by adding contacts to Firebase.\r API should serve all kinds of clients (which you do not have to implement)—both mobile apps and websites using a RESTful API.",
+  "description": "API REST, ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "lint": "eslint **/**.js"
+    "lint": "eslint **/**.js",
+    "emul": "firebase emulators:start"
   },
   "repository": {
     "type": "git",
@@ -20,16 +21,8 @@
     "url": "https://github.com/EtienneDuv/STRV-Test/issues"
   },
   "homepage": "https://github.com/EtienneDuv/STRV-Test#readme",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "firebase": "^7.23.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.11.0",
-    "eslint-config-google": "^0.14.0",
-    "mocha": "^8.1.3",
-    "nodemon": "^2.0.5"
+    "mocha": "^8.1.3"
   }
 }

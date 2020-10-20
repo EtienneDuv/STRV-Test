@@ -1,0 +1,17 @@
+<%- include ('partials/head.ejs', {title: 'Login page'}) %>
+<%- include ('partials/nav.ejs') %>
+
+<body>
+  <div class="col-sm-6 offset-1">
+    <% if (typeof error !== "" && error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <h2 class="padding-25">Login page</h2>
+    <form method="POST" type="application/x-www-form-urlencoded">
+      <%- include ('partials/input.ejs', {name: "email", type: "email", label: "Email address"}) %>
+      <%- include ('partials/input.ejs', {name: "password", type: "password" , label: "Password"}) %>
+      <button type="submit" class="btn btn-primary" formaction="/signin">Sign in</button>
+      <button type="submit" class="btn btn-info" formaction="/signup">Sign up</button>
+    </form>
+  </div>
+</body>

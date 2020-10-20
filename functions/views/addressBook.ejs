@@ -1,0 +1,15 @@
+<%- include ('partials/head.ejs', {title: 'Address Book'}) %>
+<%- include ('partials/nav.ejs') %>
+
+<body>
+  <div class="col-sm-6 offset-1">
+    <h2 class="padding-25">Add Contact</h2>
+    <form method="POST" action="/newcontact" type="application/x-www-form-urlencoded">
+      <%- include ('partials/input.ejs', {name: "firstname", type:"text", label: "First Name"}) %>
+      <%- include ('partials/input.ejs', {name: "lastname", type:"text", label: "Last Name"}) %>
+      <%- include ('partials/input.ejs', {name: "phone", type:"tel", label: "Phone number"}) %>
+      <%- include ('partials/input.ejs', {name: "address", type:"text", label: "Address"}) %>
+      <button type="submit" class="btn btn-info">Save</button>
+    </form>
+  </div>
+</body>
