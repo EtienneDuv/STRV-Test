@@ -1,4 +1,5 @@
 const { signIn, signUp, checkAuth } = require('../services/authService');
+const { saveContact } = require('../services/databaseService');
 
 module.exports = (app) => {
   app.get('/', (req, res) => {
@@ -25,5 +26,11 @@ module.exports = (app) => {
 
   app.get('/addressbook', checkAuth, (req, res) => {
     res.render('addressBook');
+  });
+
+  app.post('/newcontact', checkAuth, async (req, res) => {
+    console.log(req.body);
+    await saveContact(req.body);
+    res.redirect('/addressbook');
   });
 };
