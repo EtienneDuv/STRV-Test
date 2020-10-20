@@ -21,7 +21,15 @@
     "url": "https://github.com/EtienneDuv/STRV-Test/issues"
   },
   "homepage": "https://github.com/EtienneDuv/STRV-Test#readme",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "firebase": "^7.24.0",
+    "firebase-admin": "^9.2.0",
+    "firebase-functions": "^3.11.0"
+  },
   "devDependencies": {
     "mocha": "^8.1.3"
   }
