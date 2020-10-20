@@ -13,7 +13,28 @@ Hosting: Firebase hosting
 **Problems I had to deal with:**
 
 - my function not being a single file, I had to initiate manualy the `FIREBASE_CONFIG` env variable to initiate the firebase app
-- is using `firebase hosting + Cloud functions`, the only accepted cookie name is `__session`, which is [not documented](https://stackoverflow.com/a/44935288/13566406) 
+- when using `firebase hosting + Cloud functions`, the only accepted cookie name is `__session`, which is [not documented](https://stackoverflow.com/a/44935288/13566406) 
+
+## Usage
+
+### Prod
+
+https://strv-addressbook-duverney.web.app
+
+### Local emulator
+
+```
+> git clone https://github.com/EtienneDuv/STRV-Test.git 
+> cd STRV-Test
+> npm i
+```
+
+At this point, you will need to add `.runtimeconfig.js` file in `/function` directory.
+I should have sent it to you in a secure way.
+
+```
+> npm run emul
+```
 
 ## Functionalities
 
@@ -21,18 +42,18 @@ Hosting: Firebase hosting
 - Login 
 - Add contact
 
-### Register
+**Register**
 
 - saved in db
 - Directly login after register
 - name + psw only
 
-### Adding a contact
+**Adding a contact**
 
 - saved in db
 - First name, Last name, Phone number, Address (text)
 
-## Technos
+**Technos**
 
 - NodeJS - Express
 - Firebase
