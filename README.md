@@ -36,6 +36,11 @@ I should have sent it to you in a secure way.
 > npm run emul
 ```
 
+### Future upgrades
+
+Using session cookie to store userId, I could do better testing.
+Also the prod application would not stay connected for everyone.
+
 ## Functionalities
 
 - Register
