@@ -58,3 +58,12 @@ exports.signIn = async (email, password) => {
     return err;
   }
 };
+
+exports.signOut = async () => {
+  try {
+    return await firebaseApp.auth().signOut();
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};

@@ -1,4 +1,4 @@
-const { signIn, signUp, checkAuth } = require('../services/authService');
+const { signIn, signUp, signOut, checkAuth } = require('../services/authService');
 const { saveContact } = require('../services/databaseService');
 
 module.exports = (app) => {
@@ -23,6 +23,12 @@ module.exports = (app) => {
     }
     return res.redirect('/addressBook');
   });
+
+  app.post('/signout', checkAuth, async (req, res) => {
+    await signOut();
+    res.cookie('__session', 'User disconnected ✔', {maxAge: 1000*60*2, overwrite: true});
+    return res.redirect('/');
+    });
 
   app.get('/addressbook', checkAuth, (req, res) => {
     res.render('addressBook');
