@@ -27,14 +27,21 @@ https://strv-addressbook-duverney.web.app
 > git clone https://github.com/EtienneDuv/STRV-Test.git 
 > cd STRV-Test
 > npm i
+> cd functions
+> npm i
 ```
 
-At this point, you will need to add `.runtimeconfig.js` file in `/function` directory.
+At this point, you will need to add `.runtimeconfig.js` file in `/functions` directory.
 I should have sent it to you in a secure way.
 
 ```
 > npm run emul
 ```
+
+### Testing
+
+- First, run the app locally 
+- run `npm run test`
 
 ### Future upgrades
 
