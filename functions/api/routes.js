@@ -31,7 +31,7 @@ module.exports = (app) => {
     });
 
   app.get('/addressbook', checkAuth, (req, res) => {
-    res.render('addressbook');
+    res.render('addressBook');
   });
 
   app.post('/newcontact', checkAuth, async (req, res) => {
