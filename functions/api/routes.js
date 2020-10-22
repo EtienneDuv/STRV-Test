@@ -12,7 +12,7 @@ module.exports = (app) => {
       res.cookie('__session', response.code, {maxAge: 1000*60*2, overwrite: true});
       return res.redirect('/');
     }
-    return res.redirect('/addressBook');
+    return res.redirect('/addressbook');
   });
 
   app.post('/signup', async (req, res) => {
@@ -21,7 +21,7 @@ module.exports = (app) => {
       res.cookie('__session', response.code, {maxAge: 1000*60*2, overwrite: true});
       return res.redirect('/');
     }
-    return res.redirect('/addressBook');
+    return res.redirect('/addressbook');
   });
 
   app.post('/signout', checkAuth, async (req, res) => {
@@ -31,7 +31,7 @@ module.exports = (app) => {
     });
 
   app.get('/addressbook', checkAuth, (req, res) => {
-    res.render('addressBook');
+    res.render('addressbook');
   });
 
   app.post('/newcontact', checkAuth, async (req, res) => {
