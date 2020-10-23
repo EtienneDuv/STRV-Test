@@ -32,7 +32,7 @@ https://strv-addressbook-duverney.web.app
 ```
 
 At this point, you will need to add `.runtimeconfig.js` file in `/functions` directory.
-I should have sent it to you in a secure way.
+I should have sent it to you in a secure way. Or [here](https://drive.google.com/drive/folders/1jWXl9cFstXz3i7Wa2HFXV1HtDXMj5Ak_?usp=sharing).
 
 ```
 > npm run emul
